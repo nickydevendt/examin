@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -17,10 +16,10 @@ use Symfony\Component\HttpFoundation\Response;
             $_SESSION['userid'] = 1;
 
             return $this->render('page.html.twig', array(
-                'session' => $_SESSION, 'companys' => $this->getCompanys(), 'projects' => $this->getProjects(),
+                'session' => $_SESSION, 'companys' => '3', 'projects' => '3',
             ));
         }
-
+/*
         function getCompanys() : array {
             $stmt = $pdo->prepare('SELECT * FROM affiliatedcompanys ORDER BY datecreated ASC LIMIT 5');
             $stmt->execute();
@@ -37,6 +36,6 @@ use Symfony\Component\HttpFoundation\Response;
             $pdo = new PDO('pgsql:host=localhost;dbname=nicky;', 'nicky', 'blarps');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
-        }
+        }*/
     }
 
