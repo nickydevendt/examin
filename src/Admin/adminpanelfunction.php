@@ -1,6 +1,6 @@
 <?php
 
-include_once '../src/User/function.php';
+//include_once '../src/User/function.php';
 
 function checkAdminLog()
 {
