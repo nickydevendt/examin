@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Users;
 
     class HomepageController extends Controller
     {
@@ -18,6 +19,28 @@ use Symfony\Component\HttpFoundation\Response;
             return $this->render('page.html.twig', array(
                 'session' => $_SESSION, 'companys' => '3', 'projects' => '3',
             ));
+        }
+        /**
+            * @route("/addproject")
+            */
+        public function addUser() {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $user = new Users();
+            $user->setFirstname('Nicky');
+            $user->setPrefix('nicky');
+            $user->setLastname("www.hema.nl");
+            $user->setEmail("blarps");
+            $user->setcurrentemployer("blarps");
+            $user->setUsername("blarps");
+            $user->setPassword("blarps");
+            $user->setAdmin(1);
+            $user->setLastname("www.hema.nl");
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return new Response('Saved new product with id '.$user->getId());
         }
 /*
         function getCompanys() : array {
