@@ -27,7 +27,7 @@ class Affiliatedcompanys
     private $website;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="TIMESTAMP", options{"default" : CURRENT_TIMESTAMP})
      */
     private $datecreated;
 
