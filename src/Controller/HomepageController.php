@@ -6,6 +6,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Users;
+use App\Entity\Projects;
+use App\Entity\Affiliatedcompanys;
 
     class HomepageController extends Controller
     {
@@ -21,7 +23,7 @@ use App\Entity\Users;
             ));
         }
         /**
-            * @route("/addproject")
+            * @route("/addusers")
             */
         public function addUser() {
             $entityManager = $this->getDoctrine()->getManager();
@@ -41,6 +43,38 @@ use App\Entity\Users;
             $entityManager->flush();
 
             return new Response('Saved new product with id '.$user->getId());
+        }
+         /**
+            * @route("/addproject")
+            */
+        public function addProjects() {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $project = new Projects();
+            $project->setDeveloper('nicky');
+            $project->setName('nicky');
+            $project->setCompanyname('hema');
+            $project->setCompanywebsite('www.hema.nl');
+
+            $entityManager->persist($project);
+            $entityManager->flush();
+
+            return new Response('saved new project with id '.$project->getId());
+        }
+        /**
+            * @route("/addaffiliatedcompanys")
+            */
+        public function addAffiliatedcompanys() {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $addcoms = new Affiliatedcompanys();
+            $addcoms->setName('nicky');
+            $addcoms->setWebsite("www.hema.nl");
+
+            $entityManager->persist($addcoms);
+            $entityManager->flush();
+
+            return new Response('saved new company with id '.$addcoms->getId());
         }
 /*
         function getCompanys() : array {
