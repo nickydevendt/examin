@@ -27,7 +27,7 @@ class Affiliatedcompanys
     private $website;
 
     /**
-     * @ORM\Column(type="TIMESTAMP", options{"default" : CURRENT_TIMESTAMP})
+     * @ORM\Column(type="datetime")
      */
     private $datecreated;
 
@@ -65,9 +65,9 @@ class Affiliatedcompanys
         return $this->datecreated;
     }
 
-    public function setDatecreated(\DateTimeInterface $datecreated): self
+    public function setDatecreated(): self
     {
-        $this->datecreated = $datecreated;
+        $this->datecreated = new \DateTime("now");
 
         return $this;
     }
