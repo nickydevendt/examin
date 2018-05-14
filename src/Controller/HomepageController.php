@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Users;
 use App\Entity\Projects;
 use App\Entity\Affiliatedcompanys;
+use App\Entity\Visitors;
 
     class HomepageController extends Controller
     {
@@ -42,7 +43,7 @@ use App\Entity\Affiliatedcompanys;
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return new Response('Saved new product with id '.$user->getId());
+            return new Response('Saved new standard user with id '.$user->getId());
         }
          /**
             * @route("/addproject")
@@ -59,10 +60,10 @@ use App\Entity\Affiliatedcompanys;
             $entityManager->persist($project);
             $entityManager->flush();
 
-            return new Response('saved new project with id '.$project->getId());
+            return new Response('saved new test project with id '.$project->getId());
         }
         /**
-            * @route("/addaffiliatedcompanys")
+            * @route("/addaff")
             */
         public function addAffiliatedcompanys() {
             $entityManager = $this->getDoctrine()->getManager();
@@ -70,29 +71,29 @@ use App\Entity\Affiliatedcompanys;
             $addcoms = new Affiliatedcompanys();
             $addcoms->setName('nicky');
             $addcoms->setWebsite("www.hema.nl");
+            $addcoms->setDatecreated();
 
             $entityManager->persist($addcoms);
             $entityManager->flush();
 
             return new Response('saved new company with id '.$addcoms->getId());
         }
-/*
-        function getCompanys() : array {
-            $stmt = $pdo->prepare('SELECT * FROM affiliatedcompanys ORDER BY datecreated ASC LIMIT 5');
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
+        /**
+            * @route("/addvis")
+            */
+        public function addVisitors() {
+            $entityManager = $this->getDoctrine()->getManager();
 
-        function getProjects() : array {
-            $statement = connection()->prepare('SELECT * FROM projects ORDER BY id DESC LIMIT 3');
-            $statement->execute();
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
-        }
+            $newvis = new Visitors();
+            $newvis->setFirstname("nicky");
+            $newvis->setPrefix("de");
+            $newvis->setLastname("vendt");
+            $newvis->setEmail("nickyisdebeste@hotmail.com");
+            $newvis->setDatecreated();
+            $newvis->setExpiredate();
 
-        function connection() {
-            $pdo = new PDO('pgsql:host=localhost;dbname=nicky;', 'nicky', 'blarps');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $pdo;
-        }*/
+            $entityManager->persist($newvis);
+            $entityManager->flush();
+        }
     }
 
