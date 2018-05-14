@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VisitorsRepository")
@@ -17,7 +18,8 @@ class Visitors
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="randomid", type="guid")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $randomid;
 
@@ -47,12 +49,12 @@ class Visitors
     private $email;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $datecreated;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $expiredate;
 
@@ -66,7 +68,7 @@ class Visitors
         return $this->randomid;
     }
 
-    public function setRandomid(string $randomid): self
+    public function setRandomid(): self
     {
         $this->randomid = $randomid;
 
@@ -138,9 +140,9 @@ class Visitors
         return $this->datecreated;
     }
 
-    public function setDatecreated(\DateTimeInterface $datecreated): self
+    public function setDatecreated(): self
     {
-        $this->datecreated = $datecreated;
+        $this->datecreated = new \DateTime("now");
 
         return $this;
     }
@@ -150,9 +152,9 @@ class Visitors
         return $this->expiredate;
     }
 
-    public function setExpiredate(\DateTimeInterface $expiredate): self
+    public function setExpiredate(): self
     {
-        $this->expiredate = $expiredate;
+        $this->expiredate = new \DateTime("now");
 
         return $this;
     }
