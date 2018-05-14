@@ -70,7 +70,8 @@ class Visitors
 
     public function setRandomid(): self
     {
-        $this->randomid = $randomid;
+        $uuid = \Ramsey\Uuid\Uuid::uuid4();
+        $this->randomid = $uuid->toString();
 
         return $this;
     }
