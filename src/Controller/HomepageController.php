@@ -20,9 +20,26 @@ use App\Entity\Visitors;
             $_SESSION['userid'] = 1;
 
             return $this->render('page.html.twig', array(
-                'session' => $_SESSION, 'companys' => '3', 'projects' => '3',
+                'session' => $_SESSION, 'companys' => $this->getAllCompanys(), 'projects' => $this->getAllProjects(),
             ));
         }
+
+        public function getAllCompanys() {
+            $affiliatedcompanys = $this->getDoctrine()
+                ->getRepository(affiliatedcompanys::class)
+                ->findAll();
+            return $affiliatedcompanys;
+        }
+        public function getAllProjects() {
+            $projects = $this->getDoctrine()
+                ->getRepository(projects::class)
+                ->findAll();
+            return $projects;
+        }
+
+
+
+
         /**
             * @route("/addusers")
             */
