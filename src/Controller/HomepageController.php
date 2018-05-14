@@ -85,6 +85,8 @@ use App\Entity\Visitors;
             $entityManager = $this->getDoctrine()->getManager();
 
             $newvis = new Visitors();
+            $newvis->setRandomid();
+            $newvis->setInviteid('1');
             $newvis->setFirstname("nicky");
             $newvis->setPrefix("de");
             $newvis->setLastname("vendt");
@@ -94,6 +96,7 @@ use App\Entity\Visitors;
 
             $entityManager->persist($newvis);
             $entityManager->flush();
+            return new Response('saved new visitor with id '.$newvis->getId());
         }
     }
 
