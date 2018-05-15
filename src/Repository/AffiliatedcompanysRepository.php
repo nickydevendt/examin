@@ -19,6 +19,16 @@ class AffiliatedcompanysRepository extends ServiceEntityRepository
         parent::__construct($registry, Affiliatedcompanys::class);
     }
 
+    public function findThreeCompanys() {
+        $results = $this->createQueryBuilder('coms')
+            ->orderBy('coms.id','DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+
+        return $results;
+    }
+
 //    /**
 //     * @return Affiliatedcompanys[] Returns an array of Affiliatedcompanys objects
 //     */
