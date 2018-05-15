@@ -25,11 +25,10 @@ use App\Entity\Visitors;
         }
 
         public function getAllCompanys() {
-            $affiliatedcompanys = $this->getDoctrine()
-                ->getRepository(affiliatedcompanys::class)
-                ->findAll();
-            return $affiliatedcompanys;
+            return $this->getDoctrine()->getRepository(Affiliatedcompanys::class)
+                ->findThreeCompanys();
         }
+
         public function getAllProjects() {
             $projects = $this->getDoctrine()
                 ->getRepository(projects::class)
