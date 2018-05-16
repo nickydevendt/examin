@@ -19,6 +19,15 @@ class ProjectsRepository extends ServiceEntityRepository
         parent::__construct($registry, Projects::class);
     }
 
+    public function findThreeProjects() {
+        $results = $this->createQueryBuilder('proj')
+            ->orderBy('proj.id','DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+
+        return $results;
+    }
 //    /**
 //     * @return Projects[] Returns an array of Projects objects
 //     */
