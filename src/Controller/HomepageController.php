@@ -34,6 +34,12 @@ use App\Entity\Visitors;
                 ->getRepository(projects::class)
                 ->findAll();
             return $projects;
+
+	/*
+	return $this->getDoctrine()
+		->getRepository(projects::class)
+		->findThreeProjects();
+*/
         }
 
 
