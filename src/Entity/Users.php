@@ -66,7 +66,8 @@ class Users implements UserInterface, \Serializable
 
     public function __construct()
     {
-        $this->isActive = true;
+	    $this->isActive = true;
+	    $this->role = 'USER_ROLE';
     }
 
     public function getId()
@@ -164,6 +165,10 @@ class Users implements UserInterface, \Serializable
 
     public function getRole() {
         return $this->role;
+    }
+
+    public function getRoles() {
+    	return array('ROLE_USER');
     }
 
     public function getSalt() {
