@@ -30,20 +30,10 @@ use App\Entity\Visitors;
         }
 
         public function getAllProjects() {
-            $projects = $this->getDoctrine()
-                ->getRepository(projects::class)
-                ->findAll();
-            return $projects;
-
-	/*
-	return $this->getDoctrine()
-		->getRepository(projects::class)
-		->findThreeProjects();
-*/
+        return $this->getDoctrine()
+		    ->getRepository(projects::class)
+		    ->findThreeProjects();
         }
-
-
-
 
         /**
             * @route("/addusers")
