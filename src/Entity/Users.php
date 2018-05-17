@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Form\FormTypeInterface;
 
 /**
+ * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
-class Users
+class Users implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -52,9 +55,19 @@ class Users
     private $password;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="is_active", type="boolean")
      */
-    private $admin;
+    private $isActive;
+
+    /**
+    *   @ORM\Column(name="role", type="string", length=255)
+    */
+    private $role;
+
+    public function __construct()
+    {
+        $this->isActive = true;
+    }
 
     public function getId()
     {
@@ -145,15 +158,48 @@ class Users
         return $this;
     }
 
-    public function getAdmin(): ?int
-    {
-        return $this->admin;
+    public function setRole($role = null) {
+        $this->role = $role;
     }
 
-    public function setAdmin(int $admin): self
-    {
-        $this->admin = $admin;
+    public function getRole() {
+        return $this->role;
+    }
 
-        return $this;
+    public function getSalt() {
+        return null;
+    }
+    public function eraseCredentials() {
+        return null;
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+        $this->id,
+        $this->firstname,
+        $this->prefix,
+        $this->lastname,
+        $this->email,
+        $this->currentemployer,
+        $this->username,
+        $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+        $this->id,
+        $this->firstname,
+        $this->prefix,
+        $this->lastname,
+        $this->email,
+        $this->currentemployer,
+        $this->username,
+        $this->password,
+        ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
+
