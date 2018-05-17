@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Users;
 use App\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
     class Reglog extends Controller
     {
@@ -15,39 +16,36 @@ use Symfony\Component\HttpFoundation\Request;
             * @Route("/reglog")
             */
         public function Reglog() {
-            $_SESSION['admin'] = 0;
-            $_SESSION['userid'] = 0;
-
-            return $this->render('reglog.html.twig', array(
-            'session' => $_SESSION,
-            ));
+            return $this->render('reglog.html.twig');
         }
 
         /**
-            * @route("/reglog/register")
+            * @route("/register")
             */
-        public function registration(request $request) {
-            $user = new User();
-            $form = $this->createForm(Users::class, $user);
-            $form->handleRequest($request);
+        public function registration(UserPasswordEncoderInterface $encoder) {
+            $entityManager = $this->getDoctrine()->getManager();
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $enoder = $this->get('security.password_encoder');
-                $password = $encoder->encodePassword($user, $user->getPlainPassword());
-                $user->setPassword($password);
+            $user = new Users();
+            $user->setFirstname($_POST['firstname']);
+            $user->setPrefix($_POST['prefix']);
+            $user->setLastname($_POST['lastname']);
+            $user->setEmail($_POST['email']);
+            $user->setcurrentemployer($_POST['currentemployer']);
+            $user->setUsername($_POST['username']);
+ 
+            $plainPassword = $_POST['password'];
+            $encoded = $encoder->encodepassword($user, $plainPassword);
+            $user->setPassword($encoded);
 
-                $user->setRole('ROLE_USER');
+            $entityManager->persist($user);
+            $entityManager->flush();
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
-
-                return $this->redirectToRoute('reglog');
+            return $this->render('reglog.html.twig');
             }
-
-            return $this->render('reglog.html.twig', [
-                'form' => $form->createView(),
-            ]);
+        /**
+        * @route("/logintrue")
+        */
+        public function login($username, $password) {
         }
     }
 

@@ -11,19 +11,19 @@ class SecurityController extends Controller
     /**
         * @Route("/login", name="login")
         */
-    public function loginAction(Request $request)
+/*    public function loginAction(Request $request)
     {
         $helper = $this->get('security.authentication_utils');
 
         return $this->render(
-            'auth/login.html.twig',
+            'reglog.html.twig',
             array(
                 'last_username' => $helper->getLastUsername(),
                 'error'         => $helper->getLastAuthenticationError(),
                 )
             );
     }
-
+*/
     /**
         * @Route("/login_check", name="security_login_check")
         */
