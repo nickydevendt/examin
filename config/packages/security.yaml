@@ -13,4 +13,6 @@ security:
             http_basic: ~
             provider: users
     access_control:
-        - { path: ^/admin, roles: ROLE_USER }
+        - { path: ^/userpanel, roles: ROLE_USER }
+        - { path: ^/adminpanel, roles: ROLE_ADMIN }
+        - { path: ^/resume, roles: ROLE_USER }
