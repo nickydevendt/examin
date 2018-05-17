@@ -19,6 +19,20 @@ class UsersRepository extends ServiceEntityRepository
         parent::__construct($registry, Users::class);
     }
 
+    public function getMe($id) {
+	    return $this->createQueryBuilder('getme')
+		    ->findBy('getme.id = :id')
+		    ->getParameter('id', $id)
+		    ->getQuery()
+		    ->getResult();
+    }
+
+    public function findAllUsers() {
+    	return $this->createQueryBuilder('getAll')
+		->findAll()
+		->getQuery()
+		->getResult();
+    }
 //    /**
 //     * @return Users[] Returns an array of Users objects
 //     */

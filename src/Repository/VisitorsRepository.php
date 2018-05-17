@@ -19,6 +19,22 @@ class VisitorsRepository extends ServiceEntityRepository
         parent::__construct($registry, Visitors::class);
     }
 
+    public function getMyVisitors($inviteid) {
+    	return $this->createQueryBuilder('getVis')
+		->findAll()
+		->where('getVis.inviteid = :inviteid')
+		->setParameter('inviteid', $inviteid)
+		->getQuery()
+		->getResult();
+    }
+
+    public function findAllVisitors() {
+    	return $this->createQueryBuilder('getVisitors')
+		->findAll()
+		->getQuery()
+		->getResult();
+    }
+
 //    /**
 //     * @return Visitors[] Returns an array of Visitors objects
 //     */
@@ -34,7 +50,7 @@ class VisitorsRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+     */
 
     /*
     public function findOneBySomeField($value): ?Visitors
