@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
             * @Route("/about")
             */
         public function Workprojects() {
-            $_SESSION['admin'] = 1;
-            $_SESSION['userid'] = 1;
+            $_SESSION['admin'] = 0;
+            $_SESSION['userid'] = 0;
 
             return $this->render('about.html.twig', array(
             'session' => $_SESSION,

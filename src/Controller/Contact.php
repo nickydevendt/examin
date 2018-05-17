@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
             * @Route("/contact")
             */
         public function Contact() {
-            $_SESSION['admin'] = 1;
-            $_SESSION['userid'] = 1;
+            $_SESSION['admin'] = 0;
+            $_SESSION['userid'] = 0;
 
             return $this->render('contact.html.twig', array(
             'session' => $_SESSION,

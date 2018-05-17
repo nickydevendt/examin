@@ -12,8 +12,8 @@ class Workprojects extends Controller
     * @Route("/workprojects")
     */
     public function Workprojects() {
-    $_SESSION['admin'] = 1;
-    $_SESSION['userid'] = 1;
+    $_SESSION['admin'] = 0;
+    $_SESSION['userid'] = 0;
 
     return $this->render('workhistory.html.twig', array(
     'session' => $_SESSION,

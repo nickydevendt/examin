@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
         * @Route("/resume")
         */
         public function Resume() {
-            $_SESSION['admin'] = 1;
-            $_SESSION['userid'] = 1;
+            $_SESSION['admin'] = 0;
+            $_SESSION['userid'] = 0;
 
             return $this->render('resume.html.twig', array(
             'session' => $_SESSION,
