@@ -49,8 +49,6 @@ use App\Entity\Visitors;
             $user->setcurrentemployer("blarps");
             $user->setUsername("blarps");
             $user->setPassword("blarps");
-            $user->setAdmin(1);
-            $user->setLastname("www.hema.nl");
 
             $entityManager->persist($user);
             $entityManager->flush();

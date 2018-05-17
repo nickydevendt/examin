@@ -18,6 +18,17 @@ use Symfony\Component\HttpFoundation\Response;
             return $this->render('adminpanel.html.twig', array(
             'session' => $_SESSION,
             ));
-        }
+	}
+// $userid is gonna be used for parameter so that needs to be fixed before query can be used
+/*      public function getAllUsers() {
+		return $this->getDoctrine()->getRepository(Users::class)
+			->findAllUsers();
+	}
+
+//      $userid will be used to fill up the userid since its the foreign key from users.id
+	public function GetAllVisitors() {
+		return $this->getDoctrine()->getRepository(Visitors::class)
+			->findAllVisitors();
+		}*/
     }
 
