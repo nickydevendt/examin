@@ -8,11 +8,18 @@ security:
                 class: Entity:Users
                 property: username
     firewalls:
-        main:
-            pattern: ^/userpanel
+        login_firewall:
+                pattern: ^/login$
+                anonymous: ~
+        default:
+            anonymous: ~
             http_basic: ~
             provider: users
+            form_login: ~
+
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/userpanel, roles: ROLE_USER }
         - { path: ^/adminpanel, roles: ROLE_ADMIN }
         - { path: ^/resume, roles: ROLE_USER }
