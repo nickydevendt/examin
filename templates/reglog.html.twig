@@ -14,15 +14,18 @@
 
 {% block main %}
     <div class="reglog">
+	    {% if error is defined %}
+	        <div>{{ error.messageKey|trans(error.messageData) }}</div>
+		{% endif %}
         <div class="login" id="formstyling">
             <div>
                 <h1>Log in</h1>
             </div>
-            <form action="/logintrue" method="post">
+	    <form action="{{ path('login_check') }}" method="post">
                 <label for="username">Fill in your username</label></br>
-                <input type="text" name="username" placeholder="username" required></br>
+		<input type="text" name="_username" placeholder="username" required></br>
                 <label for="password">Fill in your password</label></br>
-                <input type="password" name="password" placeholder="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></br>
+                <input type="password" name="_password" placeholder="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></br>
                 <input type="submit" name="loginsubmit" value="Log in" class="loginbtn"></br>
                 <button class="registerbtn" id="register">Create new user</button>
             </form>
