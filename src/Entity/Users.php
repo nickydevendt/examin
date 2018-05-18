@@ -190,6 +190,7 @@ class Users implements UserInterface, \Serializable
         $this->currentemployer,
         $this->username,
         $this->password,
+        $this->role,
         ));
     }
 
@@ -204,6 +205,7 @@ class Users implements UserInterface, \Serializable
         $this->currentemployer,
         $this->username,
         $this->password,
+        $this->role,
         ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
