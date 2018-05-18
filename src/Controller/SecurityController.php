@@ -2,51 +2,44 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends Controller
 {
-    /**
-        * @Route("/login", name="login")
-        */
-    public function loginAction(Request $request)
-    {
-	$session = $request->getSession();
 
-	if ($request->attributes->has(SecurityContextInterface::AUTHENTICATION_ERROR)){
-		$error = $request->attributes->get(
-			SecurityContextInterface::AUTHENTICATION_ERROR
-		);
-	}elseif (null !== $session && $session->has(SecurityContextInterface::AUTHENTICATION_ERROR)) {
-		$error = $session->get(SecurityContextInterface::AUTHENTICATION_ERROR);
-		$session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
-	}else {
-		$error = null;
-	}
-
-	$lastUsername = (null === $session) ? '' : $session->get(SecurityContextInterface::LAST_USERNAME);
-
-	return $this->render(
-		'reglog.html.index',
-		array(
-			'last_username' => $lastUsername,
-			'error'		=> $error,
-		)
-	);
-    }
 
     /**
         * @Route("/login_check", name="login_check")
         */
-    public function loginCheckAction()
+    public function login(Request $request, AuthenticationUtils $authUtils)
     {
+        error_log(".Login.");
+        $username = $request->get('_username');
+        $password = $request->get('_password');
 
+        $error = $authUtils->getLastAuthenticationError();
+
+        $lastUsername = $authUtils->getLastUsername();
+
+        return $this->render('resume.html.twig', array(
+            'session' => $_SESSION,
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ));
     }
-
+    /**
+        * @Route("/login", name="login")
+        */
+    public function logged(EntityManagerInterface $em, Request $request, AuthenticationUtils $authUtils)
+    {
+        error_log(".OMG.");
+        return $this->render('reglog.html.twig', array('session' => $_SESSION));
+    }
     /**
         * @Route("/logout", name="logout")
         */

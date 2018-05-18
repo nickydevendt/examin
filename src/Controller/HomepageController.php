@@ -19,9 +19,10 @@ use App\Entity\Visitors;
             $_SESSION['admin'] = 0;
             $_SESSION['userid'] = 0;
 
-            return $this->render('page.html.twig', array(
-                'session' => $_SESSION, 'companys' => $this->getAllCompanys(), 'projects' => $this->getAllProjects(),
-            ));
+            $data = array(
+                'session' => $_SESSION, 'companies' => $this->getAllCompanys(), 'projects' => $this->getAllProjects(),
+            );
+            return $this->render('page.html.twig', $data);
         }
 
         public function getAllCompanys() {
