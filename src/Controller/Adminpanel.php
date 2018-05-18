@@ -5,11 +5,13 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
     class Adminpanel extends Controller
     {
         /**
             * @Route("/adminpanel")
+            * @Security("has_role('ROLE_ADMIN')")
             */
         public function Adminpanel() {
             $_SESSION['admin'] = 1;

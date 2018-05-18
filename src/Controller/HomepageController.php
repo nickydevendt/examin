@@ -16,11 +16,8 @@ use App\Entity\Visitors;
             * @Route("/")
             */
         public function homepage() {
-            $_SESSION['admin'] = 0;
-            $_SESSION['userid'] = 0;
-
             $data = array(
-                'session' => $_SESSION, 'companies' => $this->getAllCompanys(), 'projects' => $this->getAllProjects(),
+                'companies' => $this->getAllCompanys(), 'projects' => $this->getAllProjects(),'user' => $this->getUser(),
             );
             return $this->render('page.html.twig', $data);
         }

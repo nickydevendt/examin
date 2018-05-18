@@ -32,6 +32,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
             $user->setEmail($_POST['email']);
             $user->setcurrentemployer($_POST['currentemployer']);
             $user->setUsername($_POST['username']);
+            $user->setRoles('ROLE_USER');
  
             $plainPassword = $_POST['password'];
             $encoded = $encoder->encodePassword($user, $plainPassword);

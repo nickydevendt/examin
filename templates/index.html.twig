@@ -18,35 +18,31 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/resume">Resumé</a></li>
                     <li><a href="/contact">Contact</a></li>
-                    <li><a href="/userpanel">User panel</a></li>
-                    <li><a href="/adminpanel">Admin panel</a></li>
-                    <li><a href="/reglog">Login and registration</a></li>
 
-                    {#
-                    {% if session.admin == 2 and session.userid is defined %}
+                    {% if is_granted('ROLE_ADMIN') %}
                         <li><a href="/userpanel">User panel</a></li>
                         <li><a href="/adminpanel">Admin panel</a></li>
                          <li>
-                            <form action="/login" method="post">
+                            <form action="/reglog" method="post">
                                 <button class="logoutbtn" type="submit" name="logoutnow" value="logoutnow">Log out</button>
                             </form>
                         </li>
-                    {% elseif session.admin == 1 and session.userid is defined %}
+                    {% elseif is_granted('ROLE_USER') %}
                         <li><a href="/userpanel">User panel</a></li>
                         <li>
-                            <form action="/login" method="post">
+                            <form action="/reglog" method="post">
                                 <button class="logoutbtn" type="submit" name="logoutnow" value="logoutnow">Log out</button>
                             </form>
                         </li>
-                    {% elseif session.visitor is defined %}
+                    {% elseif is_granted('ROLE_VISITOR') %}
                         <li>
-                            <form action="/login" method="post">
+                            <form action="/reglog" method="post">
                                 <button class="logoutbtn" type="submit" name="logoutnow" value="logoutnow">Log out</button>
                             </form>
                         </li>
                     {% else %}
-                        <li><a href="/login">Login and registration</a></li>
-                    {% endif %} #}
+                        <li><a href="/reglog">Login and registration</a></li>
+                    {% endif %}
                 </ul>
             </div>
         {% endblock %}

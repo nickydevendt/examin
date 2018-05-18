@@ -60,14 +60,13 @@ class Users implements UserInterface, \Serializable
     private $isActive;
 
     /**
-    *   @ORM\Column(name="role", type="string", length=255)
+    *   @ORM\Column(name="roles", type="string", length=255)
     */
-    private $role;
-
+    private $roles;
+ 
     public function __construct()
     {
 	    $this->isActive = true;
-	    $this->role = 'USER_ROLE';
     }
 
     public function getId()
@@ -159,16 +158,12 @@ class Users implements UserInterface, \Serializable
         return $this;
     }
 
-    public function setRole($role = null) {
-        $this->role = $role;
-    }
-
-    public function getRole() {
-        return $this->role;
+    public function setRoles($roles) {
+        $this->roles = $roles;
     }
 
     public function getRoles() {
-    	return array('ROLE_USER');
+        return array($this->roles);
     }
 
     public function getSalt() {
@@ -190,7 +185,7 @@ class Users implements UserInterface, \Serializable
         $this->currentemployer,
         $this->username,
         $this->password,
-        $this->role,
+        $this->roles,
         ));
     }
 
@@ -205,7 +200,7 @@ class Users implements UserInterface, \Serializable
         $this->currentemployer,
         $this->username,
         $this->password,
-        $this->role,
+        $this->roles,
         ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 }
