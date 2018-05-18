@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
     {
         /**
             * @Route("/userpanel")
-            * @Security("has_role('ROLE_USER')")
+            * @Security("has_role('ROLE_USER') || has_role('ROLE_ADMIN')")
             */
         public function Userpanel() {
             return $this->render('userpanel.html.twig', array(
