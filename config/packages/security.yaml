@@ -1,8 +1,12 @@
 security:
+    encoders:
+        App\Entity\Users:
+            algorithm: bcrypt
     providers:
         users:
             entity:
-                class: Entity:Users
+                class: App\Entity\Users
+                property: username
     firewalls:
         main:
             anonymous: ~
