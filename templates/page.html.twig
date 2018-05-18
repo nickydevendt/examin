@@ -33,31 +33,31 @@
 
 {% block promotion %}
     <div class="promotion">
-        <h2>Affiliated Company's</h2>
+        <h2>Affiliated Companies</h2>
     </div>
     <div class="container">
         <div class="carousel">
             <input type="radio" id="carousel-1" name="carousel[]" checked>
-            {% for company in companys %}
+            {% for company in companies %}
             <input type="radio" id="carousel-{{ company.id + 1 }}" name="carousel[]">
             {% endfor %}
             <ul class="carousel__items">
-                {% for company in companys %}
+                {% for company in companies %}
                     <li class="carousel__item"><img src="/img/{{ company.id }}.jpg" alt="{{ company.name }}"></li>
                 {% endfor %}
             </ul>
         <div class="carousel__prev">
-            {% for company in companys %}
+            {% for company in companies %}
                 <label for="carousel-{{ company.id }}"></label>
             {% endfor %}
             </div>
         <div class="carousel__next">
-            {% for company in companys %}
+            {% for company in companies %}
                 <label for="carousel-{{ company.id }}"></label>
             {% endfor %}
         </div>
         <div class="carousel__nav">
-        {% for company in companys %}
+        {% for company in companies %}
             <label for="carousel-{{ company.id }}"></label>
         {% endfor %}
         </div>

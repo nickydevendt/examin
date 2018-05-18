@@ -6,14 +6,6 @@
         <link rel="stylesheet" type="text/css" href="/home.css">
        {# <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script> #}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script>
-            $('.closebtn').click(function() {
-                $('.alert').css({
-                    'display': 'none'
-                });
-            });
-        </script>
       {#  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'/> #}
         <title>Portfolio</title>
     </head>
@@ -26,6 +18,10 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/resume">Resumé</a></li>
                     <li><a href="/contact">Contact</a></li>
+                    <li><a href="/userpanel">User panel</a></li>
+                    <li><a href="/adminpanel">Admin panel</a></li>
+                    <li><a href="/reglog">Login and registration</a></li>
+
                     {#
                     {% if session.admin == 2 and session.userid is defined %}
                         <li><a href="/userpanel">User panel</a></li>
@@ -106,5 +102,13 @@
                 </div>
             </footer>
         {% endblock %}
+        <script type="text/javascript" src="jquery.js"></script>
+        <script>
+            $('.closebtn').click(function() {
+                $('.alert').css({
+                    'display': 'none'
+                });
+            });
+        </script>
     </body>
 </html>
