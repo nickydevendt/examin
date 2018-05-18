@@ -24,7 +24,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
             */
         public function registration(UserPasswordEncoderInterface $encoder) {
             $entityManager = $this->getDoctrine()->getManager();
-
+            $salt = 15;
             $user = new Users();
             $user->setFirstname($_POST['firstname']);
             $user->setPrefix($_POST['prefix']);
@@ -34,7 +34,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
             $user->setUsername($_POST['username']);
  
             $plainPassword = $_POST['password'];
-            $encoded = $encoder->encodepassword($user, $plainPassword);
+            $encoded = $encoder->encodePassword($user, $plainPassword);
             $user->setPassword($encoded);
 
             $entityManager->persist($user);
