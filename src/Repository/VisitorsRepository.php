@@ -20,12 +20,12 @@ class VisitorsRepository extends ServiceEntityRepository
     }
 
     public function getMyVisitors($inviteid) {
-    	return $this->createQueryBuilder('getVis')
-		->findAll()
-		->where('getVis.inviteid = :inviteid')
+    	$result = $this->createQueryBuilder('v')
+		->where('v.inviteid = :inviteid')
 		->setParameter('inviteid', $inviteid)
 		->getQuery()
 		->getResult();
+        return $result;
     }
 
     public function findAllVisitors() {
@@ -33,6 +33,15 @@ class VisitorsRepository extends ServiceEntityRepository
 		->findAll()
 		->getQuery()
 		->getResult();
+    }
+
+    public function getLastVisitor($insertid) {
+        $result = $this->createQueryBuilder('l')
+            ->where('l.id = :id')
+            ->setParameter('id', $insertid)
+            ->getQuery()
+            ->getResult();
+        return $result;
     }
 
 //    /**
