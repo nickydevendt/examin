@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VisitorsRepository")
@@ -12,16 +11,10 @@ class Visitors
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(name="randomid", type="guid")
-     * @ORM\GeneratedValue(strategy="UUID")
-     */
-    private $randomid;
 
     /**
      * @ORM\Column(type="integer")
