@@ -23,20 +23,20 @@
                         <li><a href="/userpanel">User panel</a></li>
                         <li><a href="/adminpanel">Admin panel</a></li>
                          <li>
-                            <form action="/reglog" method="post">
+                            <form action="/logout" method="post">
                                 <button class="logoutbtn" type="submit" name="logoutnow" value="logoutnow">Log out</button>
                             </form>
                         </li>
                     {% elseif is_granted('ROLE_USER') %}
                         <li><a href="/userpanel">User panel</a></li>
                         <li>
-                            <form action="/reglog" method="post">
+                            <form action="/logout" method="post">
                                 <button class="logoutbtn" type="submit" name="logoutnow" value="logoutnow">Log out</button>
                             </form>
                         </li>
                     {% elseif is_granted('ROLE_VISITOR') %}
                         <li>
-                            <form action="/reglog" method="post">
+                            <form action="/logout" method="post">
                                 <button class="logoutbtn" type="submit" name="logoutnow" value="logoutnow">Log out</button>
                             </form>
                         </li>

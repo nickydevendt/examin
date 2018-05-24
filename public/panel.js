@@ -2,7 +2,7 @@
 function updateUser() {
     $('#loading').toggleClass('show');
     $.post(
-        '/updateuser',
+        '/userpanel/updateuser',
         { updateuser: true, firstname: user.firstname.value, prefix:user.prefix.value, lastname: user.lastname.value, currentemployer: user.currentemployer.value, id: user.id.value },
         function(output) {
             $('#succes').html(output).show();
@@ -29,7 +29,7 @@ function addVis(inviteid) {
 function deleteVisit(id) {
     $('#loading').toggleClass('show');
     $.post(
-        'userpanel/deletevisitor',
+        '/userpanel/deletevisitor',
         { deletevisitor: true, deleteid: id },
         function(output) {
             $('#succes').html(output).show();

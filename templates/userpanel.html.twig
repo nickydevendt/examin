@@ -63,7 +63,6 @@
                     <td>{{ visitor.expiredate|date('d-m-Y') }}</td>
                     <td>
                         <input class="deletebtn remove" type="button" name="deletevisitor" value="delete" onClick="deleteVisit({{ visitor.id}});">
-                        <!-- and the button gets the id from this user by default so its easy so send it async like myVis.id -->
                     </td>
                 </form>
             </tr>
@@ -116,6 +115,4 @@
     </table>
     </div>
 {% endblock %}
-{% block recentprojects %}
-{% endblock%}
 

@@ -19,7 +19,6 @@ class Visitors
 
     /**
      * @ORM\Column(name="randomid", type="guid")
-     * @ORM\GeneratedValue()
      */
     private $randomid;
 
