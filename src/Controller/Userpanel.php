@@ -50,23 +50,22 @@ class Userpanel extends Controller
         $entityManager->persist($newvis);
         $entityManager->flush();
         $insertid = $newvis->getId();
-        if(isset($insertid) && !empty($insertid)){
-            $lastVis = $this->getDoctrine()->getRepository(Visitors::class)->getLastVisitor($insertid);
-            var_dump($lastVis);
+        $expiredate = get_object_vars($newvis->getExpiredate());
+        $date = $expiredate['date'];
+        if(!empty($insertid)){
             return new Response(
             '<tr>;
             <form method="post" action="">
-            <td id="freshinsert">blarps</td>
-            <td id="freshinsert">blarps</td>
-            <td id="freshinsert">blarps</td>
-            <td id="freshinsert">blarps</td>
-            <td id="freshinsert">blarps</td>
-            <td id="freshinsert">blarps</td>
+            <td id="freshinsert">'.$newvis->getRandomid().'</td>
+            <td id="freshinsert">'.$newvis->getFirstname().'</td>
+            <td id="freshinsert">'.$newvis->getPrefix().'</td>
+            <td id="freshinsert">'.$newvis->getLastname().'</td>
+            <td id="freshinsert">'.$newvis->getEmail().'</td>
+            <td id="freshinsert">'.$date.'</td>
             <td><input class="deletebtn remove" type="button" name="deletevisitor" value="delete" onClick="deleteVisit();"></td>
             </form>
             </tr>'
             );
-            //return new Response($insertid);
         }else {
             return new Response('Nothing inserted try again?');
         }

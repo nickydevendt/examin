@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VisitorsRepository")
@@ -11,10 +12,16 @@ class Visitors
 {
     /**
      * @ORM\Id()
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\Column(name="randomid", type="guid")
+     * @ORM\GeneratedValue()
+     */
+    private $randomid;
 
     /**
      * @ORM\Column(type="integer")
@@ -148,7 +155,9 @@ class Visitors
 
     public function setExpiredate(): self
     {
-        $this->expiredate = new \DateTime("now");
+        $date = new \DateTime(date("d-m-Y"));
+        $date->add(new \DateInterval('P7D'));
+        $this->expiredate = $date;
 
         return $this;
     }
