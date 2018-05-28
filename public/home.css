@@ -549,7 +549,7 @@ input:required:valid,textarea:required:valid {
     display: flex;
 }
 .learngoals {
-    color: #5eb5d2;
+    color: #155a6c;
     text-align: left;
     margin-left: 25vw;
     margin-bottom: 5vh;
@@ -585,7 +585,7 @@ input:required:valid,textarea:required:valid {
     animation: flying 28s linear 1s normal infinite none running;
 }
 #bird2 { margin-top: 11px;}
-#bird3 { margin-top: 6px; margin-right: 14px;}
+#bsdasdaird3 { margin-top: 6px; margin-right: 14px;}
 #bird4 { margin-top: 15px; margin-right: 20px;}
 #bird5 { margin-top: 25px; margin-right: 5px;}
 #bird6 { margin-top: 5px; margin-right: 25px;}
