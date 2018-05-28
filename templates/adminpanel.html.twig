@@ -20,24 +20,50 @@
                 <th></th>
             </tr><!-- here needs to come all user data like user.id and so on but for now fix this -->
             <!-- there also needs to come a for statement for each user from the database like for user in users -->
-                <tr>
-                    <form name="allusers">
-                        <td><input name="id" value="" readonly></td>
-                        <td><input name="firstname" value=""></td>
-                        <td><input name="prefix" value=""></td>
-                        <td><input name="lastname" value=""></td>
-                        <td><input name="email" value=""></td>
-                        <td><input name="currentemployer" value=""></td>
-                        <td><input name="username" value="" readonly></td>
-                        <td><input name="role" value=""></td>
-                        <td>
-                            <input class="updatebtn" type="button" value="update user" onClick="adminUpdateUser();">
-                        </td>
-                        <td>
-                            <input class="deletebtn remove" type="button" name="deletevisitor" value="delete" onClick="adminDeleteUser();">
-                        </td>
-                    </form>
-                </tr>
+            {% if users %}
+            {{ dump(users) }}
+                {% for user in users %}
+                    <tr>
+                        <form name="allusers">
+                            <td><input name="id" value="{{ user.id}}" readonly></td>
+                            <td><input name="firstname" value="{{ user.firstname }}"></td>
+                            <td><input name="prefix" value="{{user.prefix}}"></td>
+                            <td><input name="lastname" value="{{ user.lastname}}"></td>
+                            <td><input name="email" value="{{ user.email }}"></td>
+                            <td><input name="currentemployer" value="{{ user.currentemployer }}"></td>
+                            <td><input name="username" value="{{ user.username }}" readonly></td>
+                                {% if user.roles == 'ROLE_USER' %}
+                                    <td><input name="role" value="user" readonly></td>
+                                {% elseif user.roles == 'ROLE_ADMIN' %}
+                                    <td><input name="role" value="admin" readonly></td>
+                                {% endif%}
+                            <td>
+                                <input class="updatebtn" type="button" value="update user" onClick="adminUpdateUser({{ user.id }});">
+                            </td>
+                            <td>
+                                <input class="deletebtn remove" type="button" name="deletevisitor" value="delete" onClick="adminDeleteUser({{ user.id }});">
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                    <tr>
+                        <form name="allusers">
+                            <td><input name="id" value="/" readonly></td>
+                            <td><input name="firstname" value="/"></td>
+                            <td><input name="prefix" value="/"></td>
+                            <td><input name="lastname" value="/"></td>
+                            <td><input name="email" value="/"></td>
+                            <td><input name="currentemployer" value="/"></td>
+                            <td><input name="username" value="/" readonly></td>
+                            <td><input name="role" value="/" readonly></td>
+                            <td>
+                                <input class="updatebtn" type="button" value="/">
+                            </td>
+                        </form>
+                    </tr>
+
+            {% endif%}
         </table>
     </div>
 {% endblock%}
@@ -49,31 +75,50 @@
     <div class="tablealignment">
         <table class="table blueTable">
             <tr>
-                <th>ID</th>
-                <th>Randomid</th>
+                <th>Id</th>
+                <th>Password</th>
                 <th>Inviter ID</th>
                 <th>Firstname</th>
+                <th>Prefix</th>
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>Date created</th>
                 <th>Expire date</th>
                 <th>Action</th>
             </tr><!-- here needs to come a for statement for all visitors like for each visitor in visitors and then with visitor.id etc -->
+            {% if visitors %}
+            {{ dump(visitors) }}
+            {% for visitor in visitors %}
                 <tr>
-                    <td>blarps</td>
-                    <td>blarps</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ visitor.id }}</td>
+                    <td>{{ visitor.password }}</td>
+                    <td>{{ visitor.inviteid }}</td>
+                    <td>{{ visitor.firstname }}</td>
+                    <td>{{ visitor.prefix }}</td>
+                    <td>{{ visitor.lastname }}</td>
+                    <td>{{ visitor.email }}</td>
+                    <td>{{ visitor.datecreated|date("d-m-Y") }}</td>
+                    <td>{{ visitor.expiredate|date("d-m-Y") }}</td>
                     <td>
                         <form name="allvisitors">
-                            <input class="deletebtn remove" type="button" name="deletevisitor" value="delete" onClick="adminDeleteVisitor();">
+                            <input class="deletebtn remove" type="button" name="deletevisitor" value="delete" onClick="adminDeleteVisitor({{ visitor.id }});">
                         </form>
                     </td>
                 </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                    <td>/</td>
+                </tr>
+            {% endif %}
         </table>
     </div>
 {% endblock %}

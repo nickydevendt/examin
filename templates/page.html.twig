@@ -36,33 +36,10 @@
     <div class="promotion">
         <h2>Affiliated Companies</h2>
     </div>
-    <div class="container">
-        <div class="carousel">
-            <input type="radio" id="carousel-1" name="carousel[]" checked>
-            {% for company in companies %}
-            <input type="radio" id="carousel-{{ company.id + 1 }}" name="carousel[]">
-            {% endfor %}
-            <ul class="carousel__items">
-                {% for company in companies %}
-                    <li class="carousel__item"><img src="/img/{{ company.id }}.jpg" alt="{{ company.name }}"></li>
-                {% endfor %}
-            </ul>
-        <div class="carousel__prev">
-            {% for company in companies %}
-                <label for="carousel-{{ company.id }}"></label>
-            {% endfor %}
-            </div>
-        <div class="carousel__next">
-            {% for company in companies %}
-                <label for="carousel-{{ company.id }}"></label>
-            {% endfor %}
-        </div>
-        <div class="carousel__nav">
+    <div class="carousel">
         {% for company in companies %}
-            <label for="carousel-{{ company.id }}"></label>
+            <img class="mySlides" src="/img/{{ company.id }}.jpg" alt="{{ company.name }}">
         {% endfor %}
-        </div>
-        </div>
     </div>
 {% endblock %}
 
@@ -76,5 +53,7 @@
         </div>
         {% endfor %}
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts.js"></script>
 {% endblock %}
 

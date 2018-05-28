@@ -43,7 +43,7 @@
     <div class="tablealignment">
         <table class="table blueTable" id="visitors" name="visitors">
             <tr>
-                <th>Randomid</th>
+                <th>Password</th>
                 <th>Firstname</th>
                 <th>Prefix</th>
                 <th>Lastname</th>
@@ -51,11 +51,10 @@
                 <th>Expire date</th>
                 <th>Action</th>
             </tr>
- {{           dump(visitors)}}
         {% for visitor in visitors %}
             <tr>
                 <form name="test">
-                    <td>{{ visitor.randomid }}</td>
+                    <td>{{ visitor.password }}</td>
                     <td>{{ visitor.firstname }}</td>
                     <td>{{ visitor.prefix }}</td>
                     <td>{{ visitor.lastname }}</td>
