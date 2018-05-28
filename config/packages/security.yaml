@@ -2,11 +2,17 @@ security:
     encoders:
         App\Entity\Users:
             algorithm: bcrypt
+        App\Entity\Visitors:
+            algorithm: plaintext
     providers:
         users:
             entity:
                 class: App\Entity\Users
                 property: username
+        visitors:
+            entity:
+                class: App\Entity\Visitors
+                property: email
     firewalls:
         main:
             anonymous: ~
