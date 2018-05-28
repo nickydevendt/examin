@@ -1,19 +1,17 @@
 $(document).ready(function(){
-    $('.closebtn').click(function() {
-        $('.alert').css({
-            'display': 'none'
-        });
-    });
-    $('#register').click(function() {
-        $('.login').slideUp('slow');
-        $('.register').slideDown('slow');
-        $('#register').hide();
-        $('#login').show();
-    });                                                                                                                                         $('#login').click(function() {
-        $('.register').slideUp('slow');
-        $('.login').slideDown('slow');
-        $('#login').hide();
-        $('#register').show();
-    });
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+var i;
+var x = document.getElementsByClassName("mySlides");
+for (i = 0; i < x.length; i++) {
+x[i].style.display = "none";
+}
+slideIndex++;
+if (slideIndex > x.length) {slideIndex = 1}
+x[slideIndex-1].style.display = "block";
+setTimeout(carousel, 2000); // Change image every 2 seconds
+}
 });
 
