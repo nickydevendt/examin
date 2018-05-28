@@ -61,7 +61,7 @@ class Userpanel extends Controller
         $entityManager = $this->getDoctrine()->getManager();
 
         $newvis = new Visitors();
-        $newvis->setRandomid();
+        $newvis->setPassword();
         $newvis->setInviteid($_POST['inviterid']);
         $newvis->setFirstname($_POST['firstname']);
         $newvis->setPrefix($_POST['prefix']);
@@ -78,7 +78,7 @@ class Userpanel extends Controller
             return new Response(
             '<tr>;
             <form method="post" action="">
-            <td id="freshinsert">'.$newvis->getRandomid().'</td>
+            <td id="freshinsert">'.$newvis->getPassword().'</td>
             <td id="freshinsert">'.$newvis->getFirstname().'</td>
             <td id="freshinsert">'.$newvis->getPrefix().'</td>
             <td id="freshinsert">'.$newvis->getLastname().'</td>

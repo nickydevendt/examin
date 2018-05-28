@@ -93,7 +93,7 @@ use App\Entity\Visitors;
             $entityManager = $this->getDoctrine()->getManager();
 
             $newvis = new Visitors();
-            $newvis->setRandomid();
+            $newvis->setPassword();
             $newvis->setInviteid('1');
             $newvis->setFirstname("nicky");
             $newvis->setPrefix("de");

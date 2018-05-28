@@ -43,10 +43,5 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
             return $this->render('reglog.html.twig');
             }
-        /**
-        * @route("/logintrue")
-        */
-        public function login($username, $password) {
-        }
     }
 
