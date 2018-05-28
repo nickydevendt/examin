@@ -26,13 +26,11 @@ class UsersRepository extends ServiceEntityRepository
 		    ->getQuery()
 		    ->getResult();
     }
-
+/*
     public function findAllUsers() {
-    	return $this->createQueryBuilder('getAll')
-		->findAll()
-		->getQuery()
-		->getResult();
-    }
+        $allUsers = $this->getDoctrine()->getRepository(Users::class)->find();
+        return $allUsers;
+    }*/
 //    /**
 //     * @return Users[] Returns an array of Users objects
 //     */

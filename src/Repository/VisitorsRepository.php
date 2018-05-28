@@ -28,23 +28,7 @@ class VisitorsRepository extends ServiceEntityRepository
         return $result;
     }
 
-    public function findAllVisitors() {
-    	return $this->createQueryBuilder('getVisitors')
-		->findAll()
-		->getQuery()
-		->getResult();
-    }
-
-    public function getLastVisitor($insertid) {
-        $result = $this->createQueryBuilder('l')
-            ->where('l.id = :id')
-            ->setParameter('id', $insertid)
-            ->getQuery()
-            ->getResult();
-        return $result;
-    }
-
-//    /**
+    //    /**
 //     * @return Visitors[] Returns an array of Visitors objects
 //     */
     /*
