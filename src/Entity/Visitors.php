@@ -18,9 +18,9 @@ class Visitors
     private $id;
 
     /**
-     * @ORM\Column(name="randomid", type="guid")
+     * @ORM\Column(name="password", type="guid")
      */
-    private $randomid;
+    private $password;
 
     /**
      * @ORM\Column(type="integer")
@@ -62,15 +62,15 @@ class Visitors
         return $this->id;
     }
 
-    public function getRandomid(): ?string
+    public function getPassword(): ?string
     {
-        return $this->randomid;
+        return $this->password;
     }
 
-    public function setRandomid(): self
+    public function setPassword(): self
     {
         $uuid = \Ramsey\Uuid\Uuid::uuid4();
-        $this->randomid = $uuid->toString();
+        $this->password = $uuid->toString();
 
         return $this;
     }
