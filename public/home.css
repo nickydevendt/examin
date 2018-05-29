@@ -312,6 +312,13 @@ footer #telephone {
     padding: 0;
     color: #fff;
 }
+.pdf {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+}
 .languagebtn {
     background: none;
     border: none;
@@ -1148,7 +1155,6 @@ table.blueTable tfoot .links a{
 /* Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
     footer .footerlayout {
-        width: 100%;
         padding: 5% 5%;
         margin: 0;
     }
