@@ -20,14 +20,18 @@
         </div>
         <p>Lorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamerLorem impsum delamer
         </p>
-        <div>
-            <form action="" method="post">
-                <button class="languagebtn" name="nlpdf">
+        <div class="pdf">
+            <form action="/resume/nlpdf" method="post" name="lang">
+                <button class="languagebtn" name="nlpdf" value="nlpdf" >
                     <img src="/img/nlflag.png">
                 </button>
+            </form>
+            <form action="/resume/ukpdf" method="post" name="lang">
                 <button class="languagebtn" name="ukpdf">
                     <img src="/img/ukflag.png">
                 </button>
+            </form>
+            <form action="/resume/gerpdf" method="post" name="lang">
                 <button class="languagebtn" name="gerpdf">
                     <img src="/img/germanflag.png">
                 </button>
@@ -163,5 +167,7 @@
 {% endblock %}
 
 {% block recentprojects %}
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="resume.js"></script>
 {% endblock %}
 
