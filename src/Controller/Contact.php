@@ -20,7 +20,6 @@ class Contact extends Controller
      * @Route("/contact/sendmail")
      */
     public function sendMail() {
-        var_dump('fuck you');
         if(isset($_POST['contactsend'])) {
             $email = $_POST['email'];
             $pattern = '/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i';
@@ -32,31 +31,32 @@ class Contact extends Controller
                         $subject    = "message from contact page!";
                         $message    = array(
                             $_POST['name'],
-                            $_POST['phone'],
+                            isset($_POST['phone']) ?: "",
                             $_POST['message']
                             );
                         $headers    = "from: " . $_POST['email'];
                         $mail = mail($to,$subject,implode("\r\n", $message), $headers);
                         if($mail) {
-                            return '<div class="alert succes">
+                            $message = '<div class="alert succes" id="alert">
                             <span class="closebtn">&times;</span>
                             <strong>Succes!</strong> The email was send I will come back to you shortly.
                             </div>';
+                            return new Response($message);
                         }
                     } catch(Exception $e) {
-                        $message =  '<div class="alert">
+                        $message =  '<div class="alert" id="alert">
                         <span class="closebtn">&times;</span>
                         <strong>Danger!!</strong> something went wrong try again or comeback at a later time.
                         </div>';
-                        return $message;
+                        return new Response($message);
                     }
                 }
             }else {
-                $message =  '<div class="alert">
+                $message =  '<div class="alert" id="alert">
                     <span class="closebtn">&times;</span>
                     <strong>Small error!!</strong> email pattern doesnt apply for normal email standards there is probably a mistake inside your email adres you gave in!.
                     </div>';
-                return $message;
+                return new Response($message);
             }
         }
     }
