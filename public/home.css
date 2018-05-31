@@ -942,6 +942,14 @@ table.blueTable tfoot .links a{
 .alert.warning {
     background-color: #ff9800;/* Orange */
 }
+.hidden {
+    display: none;
+    visibility: hidden;
+    left: -200em;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 /* The close button */
 .closebtn {
     margin-left: 15px;
