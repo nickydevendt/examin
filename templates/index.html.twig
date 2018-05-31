@@ -74,26 +74,52 @@
             <footer>
                 <div class="footer">
                   <div class="footerlayout">
+                  {% if is_granted('ROLE_USER') or is_granted('ROLE_VISITOR') or is_granted('ROLE_ADMIN') %}
                     <div class="footercontact" id="creative">
                         <h3>CREATIVE</h3>
-                        <h4>FREEBIES</h4>
-                        <p>pellentesque in ipsum id orci porta dapibus. Praesent sapien massa convallis</p>
+                        <h4>DESIGN</h4>
+                        <p>This website is completly build in Symfony 4 framework with twig,jqeury and the latest PHP code!</p>
                     </div>
                     <div class="footercontact" id="mail" id="footerpng">
                           <img src="/img/mail.png">
-                          <h4>Mail</h4>
-                          <p>info@yourmail.com</p>
+                          <h4>Mail me</h4>
+                          <p><a href="mailto:nickydevendt@hotmail.com">Nickydevendt@hotmail.com</a></p>
                     </div>
                     <div class="footercontact" id="call" id="footerpng">
                           <img src="/img/phone.png">
                           <h4>Call me</h4>
-                          <p>+0255 123 456 789</p>
+                          <p>06 155 039 59</p>
                     </div>
                     <div class="footercontact" id="findus">
                           <img src="/img/location.png" id="footerpng">
                           <h4>Find me</h4>
-                          <p>My adress,city</p>
+                          <p>Ijsselstraat 45, Ijmuiden</p>
                     </div>
+                    {% else %}
+                    <div class="footercontact" id="creative">
+                        <h3>CREATIVE</h3>
+                        <h4>FREEBIES</h4>
+                        <p>Currently protecting my personal info, login with the received login credentials to see my info.
+                        no data received or never been in contact with me send a mail from the contact page to receive the needed info to log in.</p>
+                    </div>
+                    <div class="footercontact" id="mail" id="footerpng">
+                          <img src="/img/mail.png">
+                          <h4>Mail</h4>
+                          <p>login@personalwebsite.info</p>
+                    </div>
+                    <div class="footercontact" id="call" id="footerpng">
+                          <img src="/img/phone.png">
+                          <h4>Call me</h4>
+                          <p>+31 123 456 789</p>
+                    </div>
+                    <div class="footercontact" id="findus">
+                          <img src="/img/location.png" id="footerpng">
+                          <h4>Find me</h4>
+                          <p>loginfirst-street, to-see-data city </p>
+                    </div>
+
+                    {% endif %}
+
                   </div>
                 </div>
             </footer>
