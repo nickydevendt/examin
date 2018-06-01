@@ -6,16 +6,15 @@
             <img src="/img/world2.png" alt="THE WORLD IN A NUTSHELL">
         </div>
         <div class="contactpage">
-            <div id="googlemaps"></div>
             <div class="frame">
                 <div id="mailme">
                     <h1>Email me</h1>
                 </div>
                 <div class="message">
                     <form method="post" name="contactform">
-                        <input type="text" name="name" id="name" class="inputfield sizefix" placeholder=" Name* " required>
+                        <input type="text" name="name" id="name" class="inputfield sizefix" placeholder=" Name* " autofocus required>
                         <input type="email" name="email" id="email" class="inputfield sizefix" placeholder=" Email* " required pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$">
-                        <input type="text" name="phone" id="phone" class="inputfield sizefix" placeholder=" Phone (optional)" pattern="[0-9]{6,}" autofocus>
+                        <input type="tel" name="phone" id="phone" class="inputfield sizefix" placeholder=" Phone (optional)" pattern="[0-9]{6,}">
                         <textarea name="message" id="messarea" class="inputfield sizefix" placeholder=" Message* " required></textarea>
                         <input id="send" type="button" name="contactsend" class="inputfield sizefix" value="Send email" onClick="contactEmail();">
                     </form>

@@ -23,9 +23,9 @@
             </div>
 	    <form action="{{ path('login_check') }}" method="post">
                 <label for="username">Fill in your username</label></br>
-		<input type="text" name="_username" placeholder="username" required></br>
+		<input type="text" name="_username" placeholder="username" autocomplete="username" required></br>
                 <label for="password">Fill in your password</label></br>
-                <input type="password" name="_password" placeholder="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></br>
+                <input type="password" name="_password" placeholder="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="password" required></br>
                 <input type="submit" name="loginsubmit" value="Log in" class="loginbtn"></br>
             </form>
                 <button class="registerbtn" id="register">Create new user</button>
