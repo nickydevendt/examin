@@ -2,19 +2,22 @@
 
 {% block main %}
     <body>
+        <div class="world">
+            <img src="/img/world2.png" alt="THE WORLD IN A NUTSHELL">
+        </div>
         <div class="contactpage">
+            <div id="googlemaps"></div>
             <div class="frame">
                 <div id="mailme">
                     <h1>Email me</h1>
                 </div>
                 <div class="message">
                     <form method="post" name="contactform">
-                        <input type="text" name="name" id="name" placeholder=" Name* " required>
-                        <input type="email" name="email" id="email" placeholder=" Email* " required pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$">
-                        <input type="text" name="phone" id="phone" placeholder=" Phone (optional)" pattern="[0-9]{6,}" autofocus>
-                        <textarea name="message" id="messarea" placeholder=" Message* " required></textarea>
-                        <input type="text" name="address" id="address" style="display: none;">
-                        <input id="send" type="button" name="contactsend" value="Send email" onClick="contactEmail();">
+                        <input type="text" name="name" id="name" class="inputfield sizefix" placeholder=" Name* " required>
+                        <input type="email" name="email" id="email" class="inputfield sizefix" placeholder=" Email* " required pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$">
+                        <input type="text" name="phone" id="phone" class="inputfield sizefix" placeholder=" Phone (optional)" pattern="[0-9]{6,}" autofocus>
+                        <textarea name="message" id="messarea" class="inputfield sizefix" placeholder=" Message* " required></textarea>
+                        <input id="send" type="button" name="contactsend" class="inputfield sizefix" value="Send email" onClick="contactEmail();">
                     </form>
                 </div>
             </div>
