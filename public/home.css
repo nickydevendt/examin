@@ -261,6 +261,10 @@ footer #mail {
     border-right: 1px #fff;
     color: white;
 }
+footer #mail a {
+    text-decoration: none;
+    color: #fff;
+}
 footer #telephone {
     border-right: 1px;
 }
