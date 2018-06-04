@@ -15,7 +15,7 @@
 {% block main %}
     <div class="reglog">
 	    {% if error is defined %}
-	        <div>{{ error.messageKey|trans(error.messageData) }}</div>
+	        <div><p>{{ error.message|trans }}</p></div>
 		{% endif %}
         <div class="login" id="formstyling">
             <div>
@@ -58,9 +58,11 @@
         <div class="kleurtjes">
             <h2>Visitor login</h2>
             <div class="visitorlogin">
-                <form action="" method="post">
-                    <label for="username">Enter your personal code to get entry</label>
-                    <input type="text" name="visitorcode" placeholder="Enter your code" pattern="[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}" required>
+                <form action="{{ path('login_check')}}" method="post">
+                    <label for="email">Enter your Email adres</label>
+                    <input type="text" name="_email" placeholder="Enter your email" required>
+                    <label for="password">Enter your personal password</label>
+                    <input type="text" name="_password" placeholder="Enter your password" required>
                     <input type="submit" name="visitorsubmit" value="Log in" class="loginbtn"></br>
                 </form>
             </div>
