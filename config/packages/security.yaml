@@ -5,14 +5,14 @@ security:
         App\Entity\Visitors:
             algorithm: plaintext
     providers:
+        chain_providers:
+            chain:
+                providers: [users, visitors]
+
         users:
-            entity:
-                class: App\Entity\Users
-                property: username
+            entity: { class: App\Entity\Users, property: username }
         visitors:
-            entity:
-                class: App\Entity\Visitors
-                property: email
+            entity: { class: App\Entity\Visitors, property: email }
     firewalls:
         main:
             anonymous: ~
