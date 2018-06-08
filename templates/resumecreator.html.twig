@@ -1,0 +1,188 @@
+{% extends 'index.html.twig' %}
+
+{% block main %}
+<h1>My new resume</h1>
+<div class="resumealign">
+        <form name="newresume" action="">
+            <table class="resumelefttable">
+                <tr><td><label for="foto">Insert foto</label> <input id="foto" name="foto" value="foto"></td></tr>
+                <tr><td><label for="fullname">Enter fullname</label> <input name="fullname" value="fullname"></td></tr>
+                <tr><td><label for="street">street</label> <input name="street" value="street"></td></tr>
+                <tr><td><label for="zipcode">zipcode</label> <input name="zipcode" value="zipcode"></td></tr>
+                <tr><td><label for="city">city</label> <input name="city" value="city"></td></tr>
+                <tr><td><label for="dateofbirth">dateofbirth</label> <input name="dateofbirth" value="dateofbirth"></td></tr>
+                <tr><td><label for="phone">phone</label> <input name="phone" value="phone"></td></tr>
+                <tr><td><label for="email">email</label> <input name="email" value="{{ user.email }}" readonly></td></tr>
+                <br><td><br><br>
+                <tr><td><label for="skills">Choose a skill set name </label> <input name="skills" value="Enter a skillname"></td></tr>
+                <tr>
+                    <td><label for="skill1">Choose a sub skill set name</label> <input name="skill1" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill1value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill1value" value="1">
+                        <input type="radio" name="skill1value" value="2">
+                        <input type="radio" name="skill1value" value="3">
+                        <input type="radio" name="skill1value" value="4">
+                        <input type="radio" name="skill1value" value="5">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="skill2">Choose a sub skill set name</label> <input name="skill2" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill2value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill2value" value="1">
+                        <input type="radio" name="skill2value" value="2">
+                        <input type="radio" name="skill2value" value="3">
+                        <input type="radio" name="skill2value" value="4">
+                        <input type="radio" name="skill2value" value="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="skill3">Choose a sub skill set name</label> <input name="skill3" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill3value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill3value" value="1">
+                        <input type="radio" name="skill3value" value="2">
+                        <input type="radio" name="skill3value" value="3">
+                        <input type="radio" name="skill3value" value="4">
+                        <input type="radio" name="skill3value" value="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="skill4">Choose a sub skill set name</label> <input name="skill4" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill4value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill4value" value="1">
+                        <input type="radio" name="skill4value" value="2">
+                        <input type="radio" name="skill4value" value="3">
+                        <input type="radio" name="skill4value" value="4">
+                        <input type="radio" name="skill4value" value="5">
+                    </td>
+                </tr>
+                <br><br><br>
+                <tr><td><label for="secondaryskills">Choose a secondary skill set name </label> <input name="secondaryskills" value="Enter a skillname"></td></tr>
+                <tr>
+                    <td><label for="skill21">Choose a sub skill set name</label> <input name="skill21" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill21value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill21value" value="1">
+                        <input type="radio" name="skill21value" value="2">
+                        <input type="radio" name="skill21value" value="3">
+                        <input type="radio" name="skill21value" value="4">
+                        <input type="radio" name="skill21value" value="5">
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><label for="skill22">Choose a sub skill set name</label> <input name="skill22" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill22value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill22value" value="1">
+                        <input type="radio" name="skill22value" value="2">
+                        <input type="radio" name="skill22value" value="3">
+                        <input type="radio" name="skill22value" value="4">
+                        <input type="radio" name="skill22value" value="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="skill23">Choose a sub skill set name</label> <input name="skill23" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill23value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill23value" value="1">
+                        <input type="radio" name="skill23value" value="2">
+                        <input type="radio" name="skill23value" value="3">
+                        <input type="radio" name="skill23value" value="4">
+                        <input type="radio" name="skill23value" value="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="skill24">Choose a sub skill set name</label> <input name="skill24" value="Enter a skillname"></td>
+                    <td>
+                        <label for="skill24value">choose skill lvl</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="skill24value" value="1">
+                        <input type="radio" name="skill24value" value="2">
+                        <input type="radio" name="skill24value" value="3">
+                        <input type="radio" name="skill24value" value="4">
+                        <input type="radio" name="skill24value" value="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="personality">Personality</label><input name="personality" value="Personality"></td>
+                </tr>
+                <tr><td><input name="personality1" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personality2" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personality3" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personality4" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personality5" value="choose a personality trait"></td></tr>
+                <tr>
+                    <td>
+                        <input class="updatebtn" type="button" value="update user" onClick="updateUser();">
+                    </td>
+                </tr>
+            </table>
+            <table class="resumerighttable">
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+            </table>
+        </form>
+    </div>
+<div id="succes"></div>
+{#
+// profile text
+
+    profile
+    {{ }} a small text to introduce the reader and make them hot to read you C.V.
+
+// Education
+
+    date from - to
+    name of the education
+    {{ }} small about text.
+
+    and repeat this currently 2x
+
+// (work)Experience
+
+    date
+    Employer name
+    {{ }} small text of employer
+
+    repeated twice
+
+// another skill set with motivation traits
+
+    currently 2 lines of text
+
+// technical knowledge of the job
+
+    pick a couple of technical skill sets currently 4x
+
+// personal hobbies and skills of interest so they can pick some1 that is capable of working in their team!
+
+    currently 8 hobbies with sets of 4
+
+// last but not least a small note that they can use your info for application!
+#}
+{% endblock%}
