@@ -990,17 +990,19 @@ table.blueTable tfoot .links a{
     background-color: gray;
 }
 .resumelefttable {
-    width: 50vw;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    float:left;
 }
 .resumealign input {
     width: 100%;
 }
 .resumerighttable {
-    width: 50vw;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    float: right;
 }
 /* loading animations */
 #loading {
