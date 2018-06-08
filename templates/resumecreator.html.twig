@@ -13,7 +13,6 @@
                 <tr><td><label for="dateofbirth">dateofbirth</label> <input name="dateofbirth" value="dateofbirth"></td></tr>
                 <tr><td><label for="phone">phone</label> <input name="phone" value="phone"></td></tr>
                 <tr><td><label for="email">email</label> <input name="email" value="{{ user.email }}" readonly></td></tr>
-                <br><td><br><br>
                 <tr><td><label for="skills">Choose a skill set name </label> <input name="skills" value="Enter a skillname"></td></tr>
                 <tr>
                     <td><label for="skill1">Choose a sub skill set name</label> <input name="skill1" value="Enter a skillname"></td>
@@ -68,7 +67,6 @@
                         <input type="radio" name="skill4value" value="5">
                     </td>
                 </tr>
-                <br><br><br>
                 <tr><td><label for="secondaryskills">Choose a secondary skill set name </label> <input name="secondaryskills" value="Enter a skillname"></td></tr>
                 <tr>
                     <td><label for="skill21">Choose a sub skill set name</label> <input name="skill21" value="Enter a skillname"></td>
@@ -138,23 +136,18 @@
                 </tr>
             </table>
             <table class="resumerighttable">
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
-                <tr><td><input name="personal" value="choose a personality trait"></td></tr>
+                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
+                <tr>
+                    <td>
+                        <label for="profiletext">Choose a nice stunning profile text to catch the eye of a promoter</label>
+                        <textarea rows="4" cols="80">Fill in your own text ....</textarea>
+                    </td>
+                </tr>
             </table>
         </form>
     </div>
 <div id="succes"></div>
 {#
-// profile text
-
-    profile
-    {{ }} a small text to introduce the reader and make them hot to read you C.V.
-
 // Education
 
     date from - to
@@ -184,5 +177,5 @@
     currently 8 hobbies with sets of 4
 
 // last but not least a small note that they can use your info for application!
-#}
+ #}
 {% endblock%}
