@@ -85,9 +85,8 @@
                 <th>Date created</th>
                 <th>Expire date</th>
                 <th>Action</th>
-            </tr><!-- here needs to come a for statement for all visitors like for each visitor in visitors and then with visitor.id etc -->
+            </tr>
             {% if visitors %}
-            {{ dump(visitors) }}
             {% for visitor in visitors %}
                 <tr>
                     <td>{{ visitor.id }}</td>
@@ -119,23 +118,6 @@
                     <td>/</td>
                 </tr>
             {% endif %}
-        </table>
-    </div>
-{% endblock %}
-
-{% block recentprojects %}
-    <div class="Createpdftable">
-        <table class="table blueTable">
-            <tr>
-                <th>pdf naam</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <form name="pdfform"><!-- fix the pdf because its not working! -->
-                    <td><input name="name" value="" required></td>
-                    <td><input class="updatebtn" type="button" name="deletevisitor" value="delete" onClick="adminCreatePDF();"></td>
-                </form>
-            </tr>
         </table>
     </div>
 {% endblock %}
