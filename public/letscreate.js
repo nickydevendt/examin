@@ -15,7 +15,7 @@ function createFreshResume() {
         skill1: newresume.skill1.value,
         skill1value: newresume.skill1value.value,
         skill2: newresume.skill2.value,
-        skill2value: newresume.skill2value.value
+        skill2value: newresume.skill2value.value,
         skill3: newresume.skill3.value,
         skill3value: newresume.skill3value.value,
         skill4: newresume.skill4.value,
