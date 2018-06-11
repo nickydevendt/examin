@@ -143,45 +143,82 @@
                         <textarea rows="4" cols="80">Fill in your own text ....</textarea>
                     </td>
                 </tr>
-                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
-                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
-                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
-                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
-                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
-                <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label for="education">Educations</label><input name="education" value="Education"></td></tr>
+                <tr><td><label>First worth mentioning education</label></td></tr>
+                <tr>
+                    <td>
+                        <label for="schooling">You went there from date x to date y please use the date picker</label>
+                        <input type="date" name="schoolingfrom">
+                        <input type="date" name="schoolingto">
+                    </td>
+                </tr>
+                <tr><td><label for="schoolname">Enter school name</label><input name="schoolname" value="your schoolname here"></td></tr>
+                <tr><td><label for="schoolnametext">tell us a bit more in one line</label><input name="schoolnametext" value="enter a oneliner about that education"></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label>Second worth mentioning education</label></td></tr>
+                <tr>
+                    <td>
+                        <label for="schooling2">You went there from date x to date y please use the date picker</label>
+                        <input type="date" name="schoolingfrom2">
+                        <input type="date" name="schoolingto2">
+                    </td>
+                </tr>
+                <tr><td><label for="schoolname2">Enter school name</label><input name="schoolname2" value="your schoolname here"></td></tr>
+                <tr><td><label for="schoolnametext2">tell us a bit more in one line</label><input name="schoolnametext2" value="enter a oneliner about that education"></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label for="experience">Tell us about your work experience</label><input name="experience" value="Experience"></td></tr>
+                <tr><td><label>First worth mentioning experience for this job application</label></td></tr>
+                <tr>
+                    <td>
+                        <label>You worked there from date x to date y please use the date picker</label>
+                        <input type="date" name="workfrom">
+                        <input type="date" name="workto">
+                    </td>
+                </tr>
+                <tr><td><label for="workname">Enter work name</label><input name="workname" value="your work name here"></td></tr>
+                <tr><td><label for="worknametext">tell us a bit more in one line</label><input name="worknametext" value="enter a oneliner about that employer. be kind and motivated."></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label>Second worth mentioning work experience</label></td></tr>
+                <tr>
+                    <td>
+                        <label>You worked there from date x to date y please use the date picker</label>
+                        <input type="date" name="workfrom2">
+                        <input type="date" name="workto2">
+                    </td>
+                </tr>
+                <tr><td><label for="workname2">Enter school name</label><input name="workname2" value="your schoolname here"></td></tr>
+                <tr><td><label for="worknametext2">tell us a bit more in one line</label><input name="worknametext2" value="enter a oneliner about that employer.. be kind and motivated."></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label for="motivation">Choose motivating one liners</label><input name="motivation" value="Motivation"></td></tr>
+                <tr><td><input name="motivationoneliner1" value="Enter a cheesy oneliner"></td></tr>
+                <tr><td><input name="motivationoneliner2" value="Enter a cheesy oneliner"></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label for="techwork">Choose your technical knowledge your new employer needs to know</label><input name="techwork" value="Technical knowledge"></td></tr>
+                <tr><td><input name="techwork1" value="enter technical knowledge that is usefull for employers"></td></tr>
+                <tr><td><input name="techwork2" value="enter technical knowledge that is usefull for employers"></td></tr>
+                <tr><td><input name="techwork3" value="enter technical knowledge that is usefull for employers"></td></tr>
+                <tr><td><input name="techwork4" value="enter technical knowledge that is usefull for employers"></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr><td><label for="hobby">Choose your hobbys with a nice image</label><input name="hobby" value="Hobbies"></td></tr>
+                {# there needs to come a image selector above all hobbys maybe even let them self upload them? needs to resize to manage all the data flowing in #}
+                <tr><td><input name="hobby1" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby2" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby3" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby4" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby5" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby6" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby7" value="Enter a hobby name"></td></tr>
+                <tr><td><input name="hobby8" value="Enter a hobby name"></td></tr>
+                <tr><td></br></br></td></tr>
+                <tr>
+                    <td>
+                        <label for="finalword">Choose your final word to tell your employer</label><input name="finalword" value="Enter text based on what you want to let your employer know">
+                    </td>
+                </tr>
             </table>
         </form>
     </div>
 <div id="succes"></div>
-{#
-// Education
+{% endblock %}
 
-    date from - to
-    name of the education
-    {{ }} small about text.
-
-    and repeat this currently 2x
-
-// (work)Experience
-
-    date
-    Employer name
-    {{ }} small text of employer
-
-    repeated twice
-
-// another skill set with motivation traits
-
-    currently 2 lines of text
-
-// technical knowledge of the job
-
-    pick a couple of technical skill sets currently 4x
-
-// personal hobbies and skills of interest so they can pick some1 that is capable of working in their team!
-
-    currently 8 hobbies with sets of 4
-
-// last but not least a small note that they can use your info for application!
- #}
-{% endblock%}
