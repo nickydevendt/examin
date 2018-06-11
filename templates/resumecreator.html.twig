@@ -3,7 +3,7 @@
 {% block main %}
 <h1>My new resume</h1>
 <div class="resumealign">
-        <form name="newresume" action="/letscreate/building" method="post">
+        <form name="newresume" action="">
             <table class="resumelefttable">
                 <tr><td><label for="foto">Insert foto</label> <input id="foto" name="foto" value="foto"></td></tr>
                 <tr><td><label for="fullname">Enter fullname</label> <input name="fullname" value="fullname"></td></tr>
@@ -213,7 +213,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="updatebtn" type="submit" value="Create new resume">{#   onClick="createFreshResume();" #}
+                        <input class="updatebtn" type="button" value="Create new resume" onClick="createFreshResume();">{#   onClick="createFreshResume();" #}
                     </td>
                 </tr>
             </table>
