@@ -22,14 +22,19 @@ class Pdfcreator extends Controller
         'session' => $_SESSION, 'user' => $this->getUser(),
         ));
     }
-// you can put here another public function to use inside the controller or make other functions with routing so it can be called
+
     /**
      * @Route("/letscreate/building")
      *  @Security("has_role('ROLE_USER') || has_role('ROLE_ADMIN') || has_role('ROLE_VISITOR')")
      */
     public function buildpdf() {
     // create new pdf document
-    $pdf = new TCPDF_TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $data = $_POST;
+    var_dump($data);
+    //die();
+
+    //$pdf = new TCPDF_TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $pdf = $this->container->get('tcpdf');
 
     if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
         require_once(dirname(__FILE__).'/lang/eng.php');
@@ -42,33 +47,33 @@ class Pdfcreator extends Controller
     $pdf->AddPage();
     $html = '
         <style>
-        .personalinfo {
-        background-color: none;
-        text-align: right;
-        }
-        .workinfo {
-        background-color: none;
-        }
-        .Education {
-        float:right;
-        width: 500;
-        }
-        .h1 {
-        color: #22a0dd;
-        }
-        .p {
-        color: black;
-        }
-        .educom {
-        color: gray;
-        }
-        .img {
-        height: 15;
-        width: 15;
-        }
-        .centerline {
-        background-color: #d3cfcf;
-        }
+            .personalinfo {
+                background-color: none;
+                text-align: right;
+            }
+            .workinfo {
+                background-color: none;
+            }
+            .Education {
+                float:right;
+                width: 500;
+            }
+            .h1 {
+                color: #22a0dd;
+            }
+            .p {
+                color: black;
+            }
+            .educom {
+                color: gray;
+            }
+            .img {
+                height: 15;
+                width: 15;
+            }
+            .centerline {
+                background-color: #d3cfcf;
+            }
         </style>
         <html>
         <head></head>
@@ -87,7 +92,7 @@ class Pdfcreator extends Controller
         </table>
         </td>
         </tr>
-        <tr><td><b>Nicky de Vendt</b></td></tr>
+        <tr><td><b>'.$data['fullname'].'</b></td></tr>
         <tr><td></td></tr>
         <tr width="100">
         <td width="100">Ijsselstraat 45<br> 1972WB ijmuiden</td>
@@ -352,8 +357,11 @@ class Pdfcreator extends Controller
     $pdf->writeHTML($html, true, 0, true, 0);
     $pdf->lastPage();
     ob_end_clean();
-    $filename = $pdfname;
+    $filename = 'blarps';
     $pdf->Output(dirname(__DIR__, 2) . '/generatedpdf/' . $filename, 'F');
-        }
+    return $this->render('resume.html.twig', array(
+        'session' => $_SESSION, 'user' => $this->getUser(),
+        ));
+    }
 }
 
