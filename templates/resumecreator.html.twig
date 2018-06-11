@@ -3,7 +3,7 @@
 {% block main %}
 <h1>My new resume</h1>
 <div class="resumealign">
-        <form name="newresume" action="">
+        <form name="newresume" action="/letscreate/building" method="post">
             <table class="resumelefttable">
                 <tr><td><label for="foto">Insert foto</label> <input id="foto" name="foto" value="foto"></td></tr>
                 <tr><td><label for="fullname">Enter fullname</label> <input name="fullname" value="fullname"></td></tr>
@@ -129,11 +129,6 @@
                 <tr><td><input name="personality3" value="choose a personality trait"></td></tr>
                 <tr><td><input name="personality4" value="choose a personality trait"></td></tr>
                 <tr><td><input name="personality5" value="choose a personality trait"></td></tr>
-                <tr>
-                    <td>
-                        <input class="updatebtn" type="button" value="update user" onClick="updateUser();">
-                    </td>
-                </tr>
             </table>
             <table class="resumerighttable">
                 <tr><td><label for="profile">Choose a profile name</label><input name="profile" value="Profile"></td></tr>
@@ -216,9 +211,16 @@
                         <label for="finalword">Choose your final word to tell your employer</label><input name="finalword" value="Enter text based on what you want to let your employer know">
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <input class="updatebtn" type="submit" value="Create new resume">{#   onClick="createFreshResume();" #}
+                    </td>
+                </tr>
             </table>
         </form>
     </div>
 <div id="succes"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="letscreate.js"></script>
 {% endblock %}
 
