@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Visitors;
 use App\Entity\Users;
-
+use jonasarts\Bundle\TCPDFBundle\TCPDF\TCPDF;
 class Pdfcreator extends Controller
 {
     /**
@@ -33,7 +33,7 @@ class Pdfcreator extends Controller
     //var_dump($data);
 
     $pdf = $this->container->get('tcpdf');
-    //$pdf = TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
     if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
         require_once(dirname(__FILE__).'/lang/eng.php');
         $pdf->setLanguageArray($l);
@@ -42,6 +42,9 @@ class Pdfcreator extends Controller
 
     $pdf->SetPrintHeader(false);
     $pdf->SetPrintFooter(false);
+    //$pdf->K_THAI_TOPCHARS(false);
+    $pdf->setFontSubsetting(false);
+
     $pdf->AddPage();
     $html = file_get_contents('../src/Controller/pdftemplate.html');
     $pdf->writeHTML($html);
