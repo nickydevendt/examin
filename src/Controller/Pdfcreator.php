@@ -31,7 +31,7 @@ class Pdfcreator extends Controller
     // create new pdf document
     $user = $this->getUser();
     $data = $_POST;
-//    var_dump($user);
+    //var_dump($user->getUsername());die();
 
     $pdf = $this->container->get('tcpdf');
 
@@ -52,7 +52,7 @@ class Pdfcreator extends Controller
     $pdf->lastPage();
     ob_end_clean();
 
-    $filename = $user['username'];
+    $filename = $user->getUsername();
     $pdf->Output(dirname(__DIR__, 2) . '/generatedpdf/' . $filename, 'F');
     return new Response('we komen er wel');
     }
