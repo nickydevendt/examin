@@ -52,7 +52,7 @@ class Pdfcreator extends Controller
     $pdf->lastPage();
     ob_end_clean();
 
-    $filename = $user->getUsername();
+    $filename = $user->getId();
     $pdf->Output(dirname(__DIR__, 2) . '/generatedpdf/' . $filename, 'F');
     return new Response('we komen er wel');
     }
